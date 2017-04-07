@@ -17,7 +17,7 @@
     #landing {
         height: 100vh;
         padding-top: 64px;
-        background: center center no-repeat fixed url("/img/landing_bg.jpg");
+        background: center center no-repeat url("/img/landing_bg.jpg");
         background-size: cover;
     }
 
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <div v-for="pg in productGroups" :id="pg.title" style="padding-top: 64px; text-align: center; min-height: 100vh;">
+    <div class="container" v-for="pg in productGroups" :id="pg.title" style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 20px;">
         <div v-if="pg.title === 'events'" style="margin-top: 40px;">
             <h3>
                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
