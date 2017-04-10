@@ -70,7 +70,8 @@
         </div>
     </div>
 
-    <div class="container" v-for="pg in productGroups" :id="pg.title" style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 20px;">
+    <div class="container" v-for="pg in productGroups" :id="pg.title"
+         style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 35px;">
         <div v-if="pg.title === 'events'" style="margin-top: 40px;">
             <h3>
                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
@@ -128,12 +129,12 @@
             <h3>{{pg.title}}</h3>
 
             <div class="container-fluid" v-if="pg.products">
-                <div class="row">
+                <div class="row" v-for="row in pg.rows">
                     <div class="col-12 col-sm-12 col-md-4"
-                         v-for="product in pg.products"
-                         style="height: 300px;"
-                         v-bind:style="{ background: 'center center no-repeat url(' + product.thumbnail + ')', backgroundSize: 'cover' }"
+                         style="padding: 0px;"
+                         v-for="product in row"
                          v-on:click="showProductModal(product)">
+                        <img class="img-responsive" v-bind:src="product.thumbnail" style="margin: auto;">
                     </div>
                 </div>
             </div>
@@ -175,7 +176,6 @@
 
 <script type="text/javascript">
     var productGroups = ${productGroups};
-    console.log(productGroups);
 </script>
 
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
