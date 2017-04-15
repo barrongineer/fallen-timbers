@@ -33,6 +33,45 @@
         margin: 0 auto;
         opacity: 0.8;
     }
+
+    .thumbnail-container:hover .overlay {
+        opacity: 0.5;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #ffffff;
+    }
+
+    .carousel-indicators li, .carousel-indicators .active {
+        opacity: 0.5;
+        height: 1px;
+        width: 20px;
+        margin-right: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .carousel-indicators .active {
+        opacity: 1;
+    }
+
+    .thumbnail-container .carousel-indicators li {
+        opacity: 1;
+        width: 12px;
+    }
+
+    .thumbnail-container .carousel-indicators {
+        bottom: 0px;
+    }
 </style>
 <div id="app">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -70,39 +109,37 @@
         </div>
     </div>
 
-    <div class="container" v-for="pg in productGroups" :id="pg.title"
+    <div class="container-fluid" v-for="pg in productGroups" :id="pg.title"
          style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 35px;">
         <div v-if="pg.title === 'events'" style="margin-top: 40px;">
             <h3>
                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
             </h3>
 
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <tr>
-                        <td>May 13, 2017</td>
-                        <td>
-                            <a href="http://www.madelocalmarketplaceshows.com/" target="_blank">Made Local
-                                Marketplace</a>
-                        </td>
-                        <td>Kenwood Towne Center - Cincinnati, OH</td>
-                    </tr>
+            <div class="row">
+                <div class="col-sm-12 col-md-4" style="margin-top: 50px;">
+                    <div>May 13, 2017</div>
+                    <div>
+                        <a href="http://www.madelocalmarketplaceshows.com/" target="_blank">Made Local
+                            Marketplace</a>
+                    </div>
+                    <div>Kenwood Towne Center - Cincinnati, OH</div>
+                </div>
 
-                    <tr>
-                        <td>September 4, 2017</td>
-                        <td>
-                            <a href="http://www.uaoh.net/egov/apps/events/calendar.egov?view=detail;id=132"
-                               target="_blank">Labor Day Arts Festival</a>
-                        </td>
-                        <td>Upper Arlington, OH</td>
-                    </tr>
+                <div class="col-sm-12 col-md-4" style="margin-top: 50px;">
+                    <div>September 4, 2017</div>
+                    <div>
+                        <a href="http://www.uaoh.net/egov/apps/events/calendar.egov?view=detail;id=132"
+                           target="_blank">Labor Day Arts Festival</a>
+                    </div>
+                    <div>Upper Arlington, OH</div>
+                </div>
 
-                    <tr>
-                        <td>September 23, 2017</td>
-                        <td>Market Day</td>
-                        <td>Worthington, OH</td>
-                    </tr>
-                </table>
+                <div class="col-sm-12 col-md-4" style="margin-top: 50px;">
+                    <div>September 23, 2017</div>
+                    <div>Market Day</div>
+                    <div>Worthington, OH</div>
+                </div>
             </div>
         </div>
 
@@ -130,11 +167,17 @@
 
             <div class="container-fluid" v-if="pg.products">
                 <div class="row" v-for="row in pg.rows">
-                    <div class="col-12 col-sm-12 col-md-4"
-                         style="padding: 0px;"
+                    <div class="col-xs-12 col-sm-12 col-md-4 thumbnail-container"
+                         style="padding: 0px; cursor: pointer;"
                          v-for="product in row"
-                         v-on:click="showProductModal(product)">
+                         v-on:click.prevent="showProductModal(product)">
                         <img class="img-responsive" v-bind:src="product.thumbnail" style="margin: auto;">
+                        <div class="overlay"></div>
+
+                        <ol class="carousel-indicators" v-if="product.images.length > 1">
+                            <li v-for="(photo, index) in product.images">
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
