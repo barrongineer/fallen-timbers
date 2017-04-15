@@ -17,7 +17,7 @@ new Vue({
             for (var i = 0; i < pg.products.length; i++) {
                 row.push(pg.products[i]);
 
-                if ((i != 0 && ((i + 1) % 3 == 0)) || i == pg.products.length - 1) {
+                if ((i !== 0 && ((i + 1) % 3 === 0)) || i === pg.products.length - 1) {
                     rows.push(row);
                     row = []
                 }
