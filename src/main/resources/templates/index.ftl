@@ -77,32 +77,44 @@
                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
             </h3>
 
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <tr>
-                        <td>May 13, 2017</td>
-                        <td>
-                            <a href="http://www.madelocalmarketplaceshows.com/" target="_blank">Made Local
-                                Marketplace</a>
-                        </td>
-                        <td>Kenwood Towne Center - Cincinnati, OH</td>
-                    </tr>
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-xs-12 col-md-6">
+                    <a href="http://www.madelocalmarketplaceshows.com/" target="_blank">
+                        <img src="/img/made_local.jpg" class="img-responsive img-thumbnail">
+                    </a>
+                </div>
 
-                    <tr>
-                        <td>September 4, 2017</td>
-                        <td>
-                            <a href="http://www.uaoh.net/egov/apps/events/calendar.egov?view=detail;id=132"
-                               target="_blank">Labor Day Arts Festival</a>
-                        </td>
-                        <td>Upper Arlington, OH</td>
-                    </tr>
+                <div class="col-xs-12 col-md-6">
+                    <h3>May 13, 2017</h3>
+                    <h3>Made Local Marketplace</h3>
+                    <h3>Kenwood Towne Center - Cincinnati, OH</h3>
+                </div>
+            </div>
 
-                    <tr>
-                        <td>September 23, 2017</td>
-                        <td>Market Day</td>
-                        <td>Worthington, OH</td>
-                    </tr>
-                </table>
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-xs-12 col-md-6">
+                    <a href="http://www.uaoh.net/egov/apps/events/calendar.egov?view=detail;id=132" target="_blank">
+                        <img src="/img/ua_arts_fest.jpg" class="img-responsive img-thumbnail">
+                    </a>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <h3>September 4, 2017</h3>
+                    <h3>Labor Day Arts Festival</h3>
+                    <h3>Upper Arlington, OH</h3>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-xs-12 col-md-6">
+                    <img src="/img/market_day.jpg" class="img-responsive img-thumbnail">
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <h3>September 23, 2017</h3>
+                    <h3>Market Day</h3>
+                    <h3>Worthington, OH</h3>
+                </div>
             </div>
         </div>
 
