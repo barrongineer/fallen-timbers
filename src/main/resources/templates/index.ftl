@@ -125,6 +125,7 @@
 
                 <div class="col-xs-12 col-md-6">
                     <h3>May 13, 2017</h3>
+                    <h3>12pm - 6pm</h3>
                     <h3>Made Local Marketplace</h3>
                     <h3>Kenwood Towne Center - Cincinnati, OH</h3>
                 </div>
@@ -139,18 +140,22 @@
 
                 <div class="col-xs-12 col-md-6">
                     <h3>September 4, 2017</h3>
-                    <h3>Labor Day Arts Festival</h3>
+                    <h3>8am - 4pm</h3>
+                    <h3>Labor Day Arts Festival (Pending)</h3>
                     <h3>Upper Arlington, OH</h3>
                 </div>
             </div>
 
             <div class="row" style="margin-bottom: 20px;">
                 <div class="col-xs-12 col-md-6">
-                    <img src="/img/market_day.jpg" class="img-responsive img-thumbnail">
+                    <a href="http://web.worthingtonchamber.org/events/eventdetail.aspx?EventID=2089" target="_blank">
+                        <img src="/img/market_day.jpg" class="img-responsive img-thumbnail">
+                    </a>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
                     <h3>September 23, 2017</h3>
+                    <h3>9am - 4pm</h3>
                     <h3>Market Day</h3>
                     <h3>Worthington, OH</h3>
                 </div>
