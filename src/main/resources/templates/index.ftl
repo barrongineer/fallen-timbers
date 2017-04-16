@@ -111,7 +111,7 @@
 
     <div class="container-fluid" v-for="pg in productGroups" :id="pg.title"
          style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 35px;">
-        <div v-if="pg.title === 'events'" style="margin-top: 40px;">
+        <div v-if="pg.title === 'events'" style="margin-top: 40px;" class="container">
             <h3>
                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
             </h3>
