@@ -3,10 +3,7 @@ package com.barrongineer.web
 import com.barrongineer.model.*
 import com.barrongineer.service.FlickrService
 import com.fasterxml.jackson.databind.ObjectMapper
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.Deferred
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.experimental.*
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -22,39 +19,43 @@ class MainController(val flickrService: FlickrService,
         val productGroups = mutableListOf<ProductGroup>()
         val collections = flickrService.getCollections()
 
-        collections.collections.collection.forEach { (id, title, _, _, _, set) ->
-            val products = mutableListOf<Product>()
+        runBlocking {
+            val jobs = mutableListOf<Job>()
+            collections.collections.collection.forEach { (id, title, _, _, _, set) ->
+                jobs.add(launch(CommonPool) {
+                    val products = mutableListOf<Product>()
 
-            runBlocking {
+                    val deferred = mutableListOf<Deferred<FlickrPhotosResponse>>()
 
-                val deferred = mutableListOf<Deferred<FlickrPhotosResponse>>()
+                    set.forEach { (id, title) ->
+                        deferred.add(async(CommonPool) {
+                            val resp = flickrService.getPhotos(id)
 
-                set.forEach { (id, title) ->
-                    deferred.add(async(CommonPool) {
-                        val resp = flickrService.getPhotos(id)
+                            val images = resp.photoset.photo
+                                    .map { Photo(id = it.id, url = buildPhotoUrl(it), label = it.title) }
 
-                        val images = resp.photoset.photo
-                                .map { Photo(id = it.id, url = buildPhotoUrl(it), label = it.title) }
+                            products.add(Product(
+                                    id = id,
+                                    title = title,
+                                    thumbnail = buildPhotoUrl(resp.photoset.photo[0]),
+                                    images = images
+                            ))
 
-                        products.add(Product(
-                                id = id,
-                                title = title,
-                                thumbnail = buildPhotoUrl(resp.photoset.photo[0]),
-                                images = images
-                        ))
+                            resp
+                        })
+                    }
 
-                        resp
-                    })
-                }
+                    deferred.forEach { it.await() }
 
-                deferred.forEach { it.await() }
+                    productGroups.add(ProductGroup(
+                            id = id,
+                            title = title,
+                            products = products
+                    ))
+                })
             }
 
-            productGroups.add(ProductGroup(
-                    id = id,
-                    title = title,
-                    products = products
-            ))
+            jobs.forEach { it.join() }
         }
 
         model.addAttribute("productGroups", objectMapper.writeValueAsString(productGroups))
