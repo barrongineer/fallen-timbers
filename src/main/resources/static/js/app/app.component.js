@@ -9,8 +9,6 @@ new Vue({
     },
 
     created: function () {
-        this.productGroups = productGroups;
-
         productGroups.forEach(pg => {
             var rows = [];
             var row = [];
@@ -24,9 +22,11 @@ new Vue({
             }
 
             pg.rows = rows;
+
+            this.productGroups.push(pg);
         });
 
-        this.productGroups.push({title: "events"}, {title: "contact"});
+        this.productGroups.push({title: "events"}, {title: "about"}, {title: "contact"});
     },
 
     methods: {
