@@ -1,5 +1,9 @@
 package com.barrongineer.model
 
+object ProductGroupsCache {
+    var productGroups: MutableList<ProductGroup> = mutableListOf()
+}
+
 data class Photo(
         var id: String = "",
         var url: String = "",
