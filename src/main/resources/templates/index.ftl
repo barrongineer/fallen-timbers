@@ -23,7 +23,7 @@
 
     #logo-container {
         position: relative;
-        top: 50%;
+        top: 50%;pp
         transform: translateY(-50%);
     }
 
@@ -128,21 +128,6 @@
                     <h3>12pm - 6pm</h3>
                     <h3>Made Local Marketplace</h3>
                     <h3>Kenwood Towne Center - Cincinnati, OH</h3>
-                </div>
-            </div>
-
-            <div class="row" style="margin-bottom: 20px;">
-                <div class="col-xs-12 col-md-6">
-                    <a href="http://www.uaoh.net/egov/apps/events/calendar.egov?view=detail;id=132" target="_blank">
-                        <img src="/img/ua_arts_fest.jpg" class="img-responsive img-thumbnail">
-                    </a>
-                </div>
-
-                <div class="col-xs-12 col-md-6">
-                    <h3>September 4, 2017</h3>
-                    <h3>8am - 4pm</h3>
-                    <h3>Labor Day Arts Festival (Pending)</h3>
-                    <h3>Upper Arlington, OH</h3>
                 </div>
             </div>
 
