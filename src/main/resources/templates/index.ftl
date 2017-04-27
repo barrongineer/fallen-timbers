@@ -133,6 +133,21 @@
 
             <div class="row" style="margin-bottom: 20px;">
                 <div class="col-xs-12 col-md-6">
+                    <a href="http://www.charmatthefarm.com/" target="_blank">
+                        <img src="/img/charm_at_the_farm.jpg" class="img-responsive img-thumbnail">
+                    </a>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <h3>August 26, 2017 10am - 6pm</h3>
+                    <h3>August 27, 2017 8am - 4pm</h3>
+                    <h3>Charm at the Farm - Summer Market</h3>
+                    <h3>Lebanon, OH</h3>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-xs-12 col-md-6">
                     <a href="http://web.worthingtonchamber.org/events/eventdetail.aspx?EventID=2089" target="_blank">
                         <img src="/img/market_day.jpg" class="img-responsive img-thumbnail">
                     </a>
@@ -191,6 +206,13 @@
                     have a one-of-a-kind item.
                 </div>
             </div>
+
+            <div>
+                <img class="img-responsive img-circle" src="/img/brooke.png"
+                     style="padding-top: 40px; width: 300px; display: block; margin: auto;">
+            </div>
+
+            <h3>designer</h3>
         </div>
 
         <div v-else>
