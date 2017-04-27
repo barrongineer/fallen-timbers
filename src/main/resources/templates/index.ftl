@@ -23,7 +23,7 @@
 
     #logo-container {
         position: relative;
-        top: 50%;pp
+        top: 50%;
         transform: translateY(-50%);
     }
 
