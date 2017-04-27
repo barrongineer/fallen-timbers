@@ -170,8 +170,6 @@
             <h3>{{pg.title}}</h3>
 
             <div style="text-align: left;
-            padding-left: 50px;
-            padding-right: 50px;
             margin-top: 35px;
             font-size: 1.1em;">
                 <div>
