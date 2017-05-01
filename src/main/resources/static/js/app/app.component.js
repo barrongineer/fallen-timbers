@@ -2,6 +2,10 @@ var moveTo = new MoveTo();
 var required = window.validators.required;
 var email = window.validators.email;
 
+toastr.options = {
+    positionClass: "toast-bottom-right"
+};
+
 new Vue({
     el: "#app",
 

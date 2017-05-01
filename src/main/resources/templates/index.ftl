@@ -173,7 +173,7 @@
                 <div class="col-sm-12 col-md-6 col-md-offset-3">
                     <form style="text-align: left;">
                         <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.name.$error }">
-                            <label for="name">Name</label>
+                            <label class="control-label" for="name">Name</label>
                             <input type="text"
                                    class="form-control"
                                    id="name" placeholder="Name"
@@ -182,7 +182,7 @@
                         </div>
 
                         <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.from.$error }">
-                            <label for="email">Email Address</label>
+                            <label class="control-label" for="email">Email Address</label>
                             <input type="email"
                                    class="form-control"
                                    id="email"
@@ -192,7 +192,7 @@
                         </div>
 
                         <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.subject.$error }">
-                            <label for="subject">Subject</label>
+                            <label class="control-label" for="subject">Subject</label>
                             <input type="text"
                                    class="form-control"
                                    id="subject"
@@ -202,7 +202,7 @@
                         </div>
 
                         <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.text.$error }">
-                            <label for="message">Message</label>
+                            <label class="control-label" for="message">Message</label>
                             <textarea class="form-control"
                                       id="message"
                                       placeholder="Message..."
