@@ -285,7 +285,7 @@
         </div>
     </div>
 
-    <div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="product-modal" class="modal fade" v-if="modalReady" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -334,6 +334,8 @@
 <script src="https://unpkg.com/moveto/dist/moveTo.min.js"></script>
 <script src="https://unpkg.com/vuelidate/dist/vuelidate.min.js"></script>
 <script src="https://unpkg.com/vuelidate/dist/validators.min.js"></script>
+<script src="https://unpkg.com/hammerjs/hammer.min.js"></script>
+<script src="https://unpkg.com/jquery-hammerjs/jquery.hammer.js"></script>
 
 <script>
     Vue.use(window.vuelidate.default);

@@ -18,7 +18,8 @@ new Vue({
             subject: null,
             text: null
         },
-        sendingMail: false
+        sendingMail: false,
+        modalReady: false
     },
 
     validations: {
@@ -31,9 +32,13 @@ new Vue({
     },
 
     created: function () {
+        this.activeProduct = productGroups[0].products[0];
+        this.modalReady = true;
+
         productGroups.forEach(pg => {
             let rows = [];
             let row = [];
+
             for (let i = 0; i < pg.products.length; i++) {
                 row.push(pg.products[i]);
 
@@ -49,6 +54,17 @@ new Vue({
         });
 
         this.productGroups.push({title: "events"}, {title: "about"}, {title: "contact"});
+    },
+
+    mounted: function () {
+        let c = $("#carousel");
+
+        c.hammer().on('swipeleft', function () {
+            $(this).carousel('next');
+        });
+        c.hammer().on('swiperight', function () {
+            $(this).carousel('prev');
+        });
     },
 
     methods: {
