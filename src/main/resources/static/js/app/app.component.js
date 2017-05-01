@@ -1,11 +1,29 @@
 var moveTo = new MoveTo();
+var required = window.validators.required;
+var email = window.validators.email;
 
 new Vue({
     el: "#app",
 
     data: {
         productGroups: [],
-        activeProduct: {}
+        activeProduct: {},
+        mailCmd: {
+            name: "",
+            from: "",
+            subject: "",
+            text: ""
+        },
+        sendingMail: false
+    },
+
+    validations: {
+        mailCmd: {
+            name: {required},
+            from: {required, email},
+            subject: {required},
+            text: {required}
+        }
     },
 
     created: function () {
@@ -38,6 +56,24 @@ new Vue({
         showProductModal: function (product) {
             this.activeProduct = product;
             $("#product-modal").modal("toggle");
+        },
+
+        sendMail: function () {
+            var self = this;
+
+            if (!self.sendingMail) {
+                self.sendingMail = true;
+
+                axios.post("/mail", this.mailCmd)
+                    .then(function () {
+                        self.sendingMail = false;
+                        toastr.success("Sent!")
+                    })
+                    .catch(function () {
+                        self.sendingMail = false;
+                        toastr.error("There was an error sending the email.")
+                    });
+            }
         }
     }
 });

@@ -11,6 +11,8 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
 </head>
 <body>
 <style>
@@ -167,17 +169,63 @@
                 <i class="fa fa-envelope" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
             </h3>
 
-            <div style="margin-top: 50px;">
-                <div>
-                    <a href="mailto:fallentimbersdesign@gmail.com">fallentimbersdesign@gmail.com</a>
-                </div>
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-sm-12 col-md-6 col-md-offset-3">
+                    <form style="text-align: left;">
+                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.name.$error }">
+                            <label for="name">Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="name" placeholder="Name"
+                                   v-model="mailCmd.name"
+                                   v-on:input="$v.mailCmd.name.$touch">
+                        </div>
 
-                <div style="margin-top: 20px;">
-                    <a href="https://www.instagram.com/fallentimbersdesign/" target="_blank">
-                        <i class="fa fa-instagram" aria-hidden="true" style="font-size: 1.5em; color: #000000;"></i>
-                        <span>fallentimbersdesign</span>
-                    </a>
+                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.from.$error }">
+                            <label for="email">Email Address</label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="email"
+                                   placeholder="Email"
+                                   v-model="mailCmd.from"
+                                   v-on:input="$v.mailCmd.from.$touch">
+                        </div>
+
+                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.subject.$error }">
+                            <label for="subject">Subject</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="subject"
+                                   placeholder="Subject"
+                                   v-model="mailCmd.subject"
+                                   v-on:input="$v.mailCmd.subject.$touch">
+                        </div>
+
+                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.text.$error }">
+                            <label for="message">Message</label>
+                            <textarea class="form-control"
+                                      id="message"
+                                      placeholder="Message..."
+                                      rows="5"
+                                      v-model="mailCmd.text"
+                                      v-on:input="$v.mailCmd.text.$touch"></textarea>
+                        </div>
+                    </form>
+
+                    <button type="button"
+                            class="btn btn-default pull-left"
+                            v-bind:class="{ 'disabled': $v.mailCmd.$error || !$v.mailCmd.$dirty }"
+                            v-bind:disabled="$v.mailCmd.$error || !$v.mailCmd.$dirty"
+                            v-on:click="sendMail()">Send
+                    </button>
                 </div>
+            </div>
+
+            <div class="row" style="margin-top: 90px;">
+                <a href="https://www.instagram.com/fallentimbersdesign/" target="_blank">
+                    <i class="fa fa-instagram" aria-hidden="true" style="font-size: 1.5em; color: #000000;"></i>
+                    <span style="font-size: 1.25em;">fallentimbersdesign</span>
+                </a>
             </div>
         </div>
 
@@ -278,12 +326,19 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-<#--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/moveto/dist/moveTo.min.js"></script>
+<script src="https://unpkg.com/vuelidate/dist/vuelidate.min.js"></script>
+<script src="https://unpkg.com/vuelidate/dist/validators.min.js"></script>
+
+<script>
+    Vue.use(window.vuelidate.default);
+</script>
 
 <script src="/js/app/app.component.js"></script>
 
