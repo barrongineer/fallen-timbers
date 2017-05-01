@@ -1,6 +1,6 @@
-var moveTo = new MoveTo();
-var required = window.validators.required;
-var email = window.validators.email;
+const moveTo = new MoveTo();
+const required = window.validators.required;
+const email = window.validators.email;
 
 toastr.options = {
     positionClass: "toast-bottom-right"
@@ -13,10 +13,10 @@ new Vue({
         productGroups: [],
         activeProduct: {},
         mailCmd: {
-            name: "",
-            from: "",
-            subject: "",
-            text: ""
+            name: null,
+            from: null,
+            subject: null,
+            text: null
         },
         sendingMail: false
     },
@@ -32,9 +32,9 @@ new Vue({
 
     created: function () {
         productGroups.forEach(pg => {
-            var rows = [];
-            var row = [];
-            for (var i = 0; i < pg.products.length; i++) {
+            let rows = [];
+            let row = [];
+            for (let i = 0; i < pg.products.length; i++) {
                 row.push(pg.products[i]);
 
                 if ((i !== 0 && ((i + 1) % 3 === 0)) || i === pg.products.length - 1) {
@@ -63,18 +63,30 @@ new Vue({
         },
 
         sendMail: function () {
-            var self = this;
+            let self = this;
 
             if (!self.sendingMail) {
                 self.sendingMail = true;
+                toastr.info("Sending...", null, {timeOut: 0});
 
                 axios.post("/mail", this.mailCmd)
                     .then(function () {
                         self.sendingMail = false;
+
+                        Vue.set(self.mailCmd, "name", null);
+                        Vue.set(self.mailCmd, "from", null);
+                        Vue.set(self.mailCmd, "subject", null);
+                        Vue.set(self.mailCmd, "text", null);
+
+                        self.$v.mailCmd.$reset();
+
+                        toastr.clear();
                         toastr.success("Sent!")
                     })
                     .catch(function () {
                         self.sendingMail = false;
+
+                        toastr.clear();
                         toastr.error("There was an error sending the email.")
                     });
             }
