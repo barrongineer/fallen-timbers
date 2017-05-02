@@ -1,6 +1,6 @@
-const moveTo = new MoveTo();
-const required = window.validators.required;
-const email = window.validators.email;
+var moveTo = new MoveTo();
+var required = window.validators.required;
+var email = window.validators.email;
 
 toastr.options = {
     positionClass: "toast-bottom-right"
