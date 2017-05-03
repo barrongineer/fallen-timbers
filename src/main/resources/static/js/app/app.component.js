@@ -76,8 +76,8 @@ new Vue({
         },
 
         showProductModal: function (product) {
-            this.activeProduct = product;
-            $("#product-modal").modal("toggle");
+            let id = "#product-modal-" + product.id;
+            $(id).modal("toggle");
         },
 
         sendMail: function () {
