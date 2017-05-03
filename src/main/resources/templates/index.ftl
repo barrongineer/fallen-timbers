@@ -7,12 +7,7 @@
 
     <title>Fallen Timbers</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+<#include "vendor_styles.ftl">
 </head>
 <body>
 <style>
@@ -76,40 +71,9 @@
     }
 </style>
 <div id="app">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" v-on:click.prevent="moveTo('landing')" href="javascript:void(0)">
-                    <i class="fa fa-tree" aria-hidden="true"></i> fallen timbers
-                </a>
-            </div>
 
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li v-for="pg in productGroups">
-                        <a v-on:click="moveTo(pg.title)" href="javascript:void(0)">{{pg.title}}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="landing">
-        <div class="container" style="height: 100%;">
-            <div class="row" style="height: 100%;">
-                <div id="logo-container" class="align-middle col align-self-center">
-                    <img src="/img/logo.jpg"/>
-                </div>
-            </div>
-        </div>
-    </div>
+<#include "nav.ftl">
+<#include "landing.ftl">
 
     <div class="container-fluid" v-for="pg in productGroups" :id="pg.title"
          style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 35px;">
@@ -165,102 +129,11 @@
         </div>
 
         <div v-else-if="pg.title === 'contact'">
-            <h3>
-                <i class="fa fa-envelope" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
-            </h3>
-
-            <div class="row" style="margin-top: 50px;">
-                <div class="col-sm-12 col-md-6 col-md-offset-3">
-                    <form style="text-align: left;">
-                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.name.$error }">
-                            <label class="control-label" for="name">Name</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="name" placeholder="Name"
-                                   v-model="mailCmd.name"
-                                   v-on:input="$v.mailCmd.name.$touch">
-                        </div>
-
-                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.from.$error }">
-                            <label class="control-label" for="email">Email Address</label>
-                            <input type="email"
-                                   class="form-control"
-                                   id="email"
-                                   placeholder="Email"
-                                   v-model="mailCmd.from"
-                                   v-on:input="$v.mailCmd.from.$touch">
-                        </div>
-
-                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.subject.$error }">
-                            <label class="control-label" for="subject">Subject</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="subject"
-                                   placeholder="Subject"
-                                   v-model="mailCmd.subject"
-                                   v-on:input="$v.mailCmd.subject.$touch">
-                        </div>
-
-                        <div class="form-group" v-bind:class="{ 'has-error': $v.mailCmd.text.$error }">
-                            <label class="control-label" for="message">Message</label>
-                            <textarea class="form-control"
-                                      id="message"
-                                      placeholder="Message..."
-                                      rows="5"
-                                      v-model="mailCmd.text"
-                                      v-on:input="$v.mailCmd.text.$touch"></textarea>
-                        </div>
-                    </form>
-
-                    <button type="button"
-                            class="btn btn-default pull-left"
-                            v-bind:class="{ 'disabled': $v.mailCmd.$error || !$v.mailCmd.$dirty }"
-                            v-bind:disabled="$v.mailCmd.$error || !$v.mailCmd.$dirty"
-                            v-on:click="sendMail()">Send
-                    </button>
-                </div>
-            </div>
-
-            <div class="row" style="margin-top: 90px;">
-                <a href="https://www.instagram.com/fallentimbersdesign/" target="_blank">
-                    <i class="fa fa-instagram" aria-hidden="true" style="font-size: 1.5em; color: #000000;"></i>
-                    <span style="font-size: 1.25em;">fallentimbersdesign</span>
-                </a>
-            </div>
+        <#include "contact.ftl">
         </div>
 
         <div v-else-if="pg.title === 'about'" class="container">
-            <h3>{{pg.title}}</h3>
-
-            <div style="text-align: left;
-            margin-top: 35px;
-            font-size: 1.1em;">
-                <div>
-                    Fallen Timbers was born out of a family’s passion for
-                    home décor, eye for design, and a can-do attitude.
-                    Our pieces are made from a mix of new and reclaimed
-                    wood. We’re always on the hunt for unusual reclaimed
-                    timber, recovered from abandoned industrial buildings
-                    and farmhouses. We love the challenge of taking
-                    something old and upcycling it into something new and
-                    stylish!
-                </div>
-                <div style="margin-top: 20px;">
-                    The Fallen Timbers design is inspired by the modern
-                    farmhouse. From our furniture to artwork, we pride
-                    ourselves in the fact that each of our items is uniquely
-                    handcrafted, without mass production. When you take
-                    one of our contemporary rustic pieces home, you will
-                    have a one-of-a-kind item.
-                </div>
-            </div>
-
-            <div>
-                <img class="img-responsive img-circle" src="/img/brooke.png"
-                     style="padding-top: 40px; width: 300px; display: block; margin: auto;">
-            </div>
-
-            <h3>designer</h3>
+        <#include "about.ftl">
         </div>
 
         <div v-else>
@@ -321,38 +194,9 @@
     var productGroups = ${productGroups};
 </script>
 
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/moveto/dist/moveTo.min.js"></script>
-<script src="https://unpkg.com/vuelidate/dist/vuelidate.min.js"></script>
-<script src="https://unpkg.com/vuelidate/dist/validators.min.js"></script>
-<script src="https://unpkg.com/hammerjs/hammer.min.js"></script>
-<script src="https://unpkg.com/jquery-hammerjs/jquery.hammer.js"></script>
-
-<script>
-    Vue.use(window.vuelidate.default);
-</script>
-
-<script src="/js/app/app.component.js"></script>
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-98354609-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
+<#include "vendor_scripts.ftl">
+<#include "app_scripts.ftl">
+<#include "google_analytics.ftl">
 
 </body>
 </html>

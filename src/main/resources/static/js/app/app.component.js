@@ -6,6 +6,8 @@ toastr.options = {
     positionClass: "toast-bottom-right"
 };
 
+Vue.use(window.vuelidate.default);
+
 new Vue({
     el: "#app",
 
