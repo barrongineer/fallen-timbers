@@ -59,7 +59,7 @@ new Vue({
     },
 
     mounted: function () {
-        let c = $("#carousel");
+        let c = $(".carousel");
 
         c.hammer().on('swipeleft', function () {
             $(this).carousel('next');

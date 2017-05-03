@@ -28,4 +28,4 @@
          style="padding-top: 40px; width: 300px; display: block; margin: auto;">
 </div>
 
-<h3>designer</h3>
+<div style="margin-top: 30px; font-size: 1.4em;">designer</div>
