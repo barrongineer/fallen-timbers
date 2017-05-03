@@ -24,7 +24,7 @@
 </div>
 
 <div>
-    <img class="img-responsive img-circle" src="/img/brooke.png"
+    <img class="img-responsive" src="/img/brooke.png"
          style="padding-top: 40px; width: 300px; display: block; margin: auto;">
 </div>
 
