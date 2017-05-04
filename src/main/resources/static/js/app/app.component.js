@@ -17,7 +17,6 @@ new Vue({
 
     data: {
         productGroups: [],
-        activeProduct: {},
         mailCmd: {
             name: null,
             from: null,
@@ -38,9 +37,6 @@ new Vue({
     },
 
     created: function () {
-        this.activeProduct = productGroups[0].products[0];
-        this.modalReady = true;
-
         productGroups.forEach(pg => {
             let rows = [];
             let row = [];
