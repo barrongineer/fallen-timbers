@@ -29,7 +29,7 @@
         </div>
 
         <div v-else-if="pg.title === 'about'" class="container">
-        <#include "about.ftl">
+            <about :title="pg.title"></about>
         </div>
 
         <div v-else>

@@ -12,7 +12,8 @@ new Vue({
     el: "#app",
 
     components: {
-        events: EventsComponent
+        events: EventsComponent,
+        about: AboutComponent
     },
 
     data: {
