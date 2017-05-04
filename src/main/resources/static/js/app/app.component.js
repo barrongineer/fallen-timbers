@@ -11,6 +11,10 @@ Vue.use(window.vuelidate.default);
 new Vue({
     el: "#app",
 
+    components: {
+        events: EventsComponent
+    },
+
     data: {
         productGroups: [],
         activeProduct: {},

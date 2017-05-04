@@ -21,7 +21,7 @@
     <div class="container-fluid" v-for="pg in productGroups" :id="pg.title"
          style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 35px;">
         <div v-if="pg.title === 'events'" style="margin-top: 40px;" class="container">
-        <#include "events.ftl">
+            <events :title="pg.title"></events>
         </div>
 
         <div v-else-if="pg.title === 'contact'">
@@ -81,6 +81,7 @@
 </script>
 
 <#include "vendor_scripts.ftl">
+<#include "components.ftl">
 <#include "app_scripts.ftl">
 <#include "google_analytics.ftl">
 
