@@ -6,7 +6,7 @@
              style="padding: 0px; cursor: pointer;"
              v-for="product in row"
              v-on:click.prevent="showProductModal(product)">
-            <img class="img-responsive" v-bind:src="product.thumbnail" style="margin: auto;">
+            <img class="img-responsive" v-bind:src="product.thumbnail" style="margin: auto; width: 100%;">
             <div class="overlay"></div>
 
             <ol class="carousel-indicators" v-if="product.images.length > 1">
