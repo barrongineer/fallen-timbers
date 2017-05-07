@@ -8,7 +8,8 @@ import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.UriComponentsBuilder
 
 @Service
-class FlickrService(val restTemplate: RestTemplate) {
+class FlickrService(val restTemplate: RestTemplate,
+                    val productGroupsCache: ProductGroupsCache) {
 
     @Scheduled(fixedRate = 60 * 1000)
     fun populateProductGroupCache() {
@@ -54,7 +55,7 @@ class FlickrService(val restTemplate: RestTemplate) {
             jobs.forEach { it.join() }
         }
 
-        ProductGroupsCache.productGroups = productGroups
+        productGroupsCache.productGroups = productGroups
     }
 
     private fun buildPhotoUrl(photo: FlickrPhoto): String {

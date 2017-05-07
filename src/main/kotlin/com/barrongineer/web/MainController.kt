@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
 @RequestMapping("/")
-class MainController(val objectMapper: ObjectMapper) {
+class MainController(val objectMapper: ObjectMapper,
+                     val productGroupsCache: ProductGroupsCache) {
 
     @GetMapping
     fun get(model: Model): String {
-        model.addAttribute("productGroups", objectMapper.writeValueAsString(ProductGroupsCache.productGroups))
+        model.addAttribute("productGroups", objectMapper.writeValueAsString(productGroupsCache.productGroups))
 
         return "index"
     }

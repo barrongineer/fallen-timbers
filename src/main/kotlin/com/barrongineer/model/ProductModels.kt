@@ -1,6 +1,11 @@
 package com.barrongineer.model
 
-object ProductGroupsCache {
+import org.springframework.context.annotation.Scope
+import org.springframework.stereotype.Component
+
+@Component
+@Scope("singleton")
+class ProductGroupsCache {
     var productGroups: MutableList<ProductGroup> = mutableListOf()
 }
 
