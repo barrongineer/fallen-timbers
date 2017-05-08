@@ -13,9 +13,9 @@
         </div>
 
         <div class="col-xs-12 col-md-6 visible-xs visible-sm">
-            <h3 v-for="date in dates">{{date}}</h3>
-            <h3>{{venue}}</h3>
-            <h3>{{location}}</h3>
+            <h4 v-for="date in dates">{{date}}</h4>
+            <h4>{{venue}}</h4>
+            <h4>{{location}}</h4>
         </div>
     </div>
 </script>
