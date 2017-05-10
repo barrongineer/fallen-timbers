@@ -18,24 +18,25 @@
 <#include "nav.ftl">
 <#include "landing.ftl">
 
-    <div class="container-fluid" v-for="pg in productGroups" :id="pg.title"
+<#list productGroups as pg>
+    <div class="container-fluid" id="${pg.title}"
          style="padding-top: 64px; text-align: center; min-height: 100vh; padding: 35px;">
-        <div v-if="pg.title === 'events'" style="margin-top: 40px;" class="container">
-            <events :title="pg.title"></events>
-        </div>
-
-        <div v-else-if="pg.title === 'contact'">
-        <#include "contact.ftl">
-        </div>
-
-        <div v-else-if="pg.title === 'about'" class="container">
-            <about :title="pg.title"></about>
-        </div>
-
-        <div v-else>
-        <#include "product_group.ftl">
-        </div>
+        <#if pg.title == "events">
+            <div style="margin-top: 40px;" class="container">
+                <#include "events.ftl">
+            </div>
+        <#elseif pg.title == "contact">
+            <#include "contact.ftl">
+        <#elseif pg.title == "about">
+            <div class="container">
+                <#include "about.ftl">
+            </div>
+        <#else>
+            <#include "product_group.ftl">
+        </#if>
     </div>
+</#list>
+
 
 <#include "product-modals.ftl">
 </div>

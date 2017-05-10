@@ -15,9 +15,11 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li v-for="pg in productGroups">
-                    <a v-on:click="moveTo(pg.title)" href="javascript:void(0)">{{pg.title}}</a>
+            <#list productGroups as pg>
+                <li>
+                    <a onclick="moveTo(${pg.title})" href="javascript:void(0)">${pg.title}</a>
                 </li>
+            </#list>
             </ul>
         </div>
     </div>

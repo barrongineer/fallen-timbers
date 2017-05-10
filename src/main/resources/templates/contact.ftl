@@ -1,5 +1,5 @@
 <h3>
-    <i class="fa fa-envelope" aria-hidden="true" style="margin-right: 20px;"></i>{{pg.title}}
+    <i class="fa fa-envelope" aria-hidden="true" style="margin-right: 20px;"></i>${pg.title}
 </h3>
 
 <div class="row" style="margin-top: 50px;">
