@@ -8,16 +8,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" v-on:click.prevent="moveTo('landing')" href="javascript:void(0)">
+            <a id="home-link" class="navbar-brand" href="javascript:void(0)">
                 <i class="fa fa-tree" aria-hidden="true"></i> fallen timbers
             </a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li v-for="pg in productGroups">
-                    <a v-on:click="moveTo(pg.title)" href="javascript:void(0)">{{pg.title}}</a>
+            <#list productGroups as pg>
+                <li>
+                    <a id="${pg.title?replace(" ", "")}-navlink" href="javascript:void(0)">${pg.title}</a>
                 </li>
+            </#list>
             </ul>
         </div>
     </div>

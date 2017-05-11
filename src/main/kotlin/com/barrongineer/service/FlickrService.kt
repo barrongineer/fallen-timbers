@@ -55,6 +55,26 @@ class FlickrService(val restTemplate: RestTemplate,
             jobs.forEach { it.join() }
         }
 
+        productGroups.forEach { pg ->
+            val rows = mutableListOf(mutableListOf<Product>())
+            var row = mutableListOf<Product>()
+
+            pg.products.forEachIndexed { index, product ->
+                row.add(product)
+
+                if ((index !== 0 && ((index + 1) % 3 == 0)) || index == pg.products.size - 1) {
+                    rows.add(row)
+                    row = mutableListOf<Product>()
+                }
+            }
+
+            pg.rows = rows
+        }
+
+        productGroups.add(ProductGroup(title = "events"))
+        productGroups.add(ProductGroup(title = "about"))
+        productGroups.add(ProductGroup(title = "contact"))
+
         productGroupsCache.productGroups = productGroups
     }
 

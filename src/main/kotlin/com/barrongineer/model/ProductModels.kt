@@ -25,5 +25,6 @@ data class Product(
 data class ProductGroup(
         var id: String = "",
         var title: String = "",
-        var products: MutableList<Product> = mutableListOf()
+        var products: MutableList<Product> = mutableListOf(),
+        var rows: MutableList<MutableList<Product>> = mutableListOf()
 )
