@@ -31,7 +31,7 @@ noArg {
     annotation("com.barrongineer.model.NoArg")
 }
 
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = 1.8
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
