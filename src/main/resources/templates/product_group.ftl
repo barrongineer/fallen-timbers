@@ -6,8 +6,8 @@
         <div class="row">
             <#list row as product>
                 <div class="col-xs-12 col-sm-12 col-md-4 thumbnail-container"
-                     style="padding: 0px; cursor: pointer;"
-                     onclick="showProductModal(${product})">
+                     style="padding: 0px; cursor: pointer;" data-toggle="modal"
+                     data-target="#product-modal-${product.id}">
                     <img class="img-responsive" src="${product.thumbnail}" style="margin: auto; width: 100%;">
                     <div class="overlay"></div>
 

@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" v-on:click.prevent="moveTo('landing')" href="javascript:void(0)">
+            <a id="home-link" class="navbar-brand" href="javascript:void(0)">
                 <i class="fa fa-tree" aria-hidden="true"></i> fallen timbers
             </a>
         </div>
@@ -17,7 +17,7 @@
             <ul class="nav navbar-nav">
             <#list productGroups as pg>
                 <li>
-                    <a onclick="moveTo(${pg.title})" href="javascript:void(0)">${pg.title}</a>
+                    <a id="${pg.title?replace(" ", "")}-navlink" href="javascript:void(0)">${pg.title}</a>
                 </li>
             </#list>
             </ul>

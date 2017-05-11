@@ -41,12 +41,7 @@
 <#include "product-modals.ftl">
 </div>
 
-<script type="text/javascript">
-    var productGroups = ${productGroups};
-</script>
-
 <#include "vendor_scripts.ftl">
-<#include "components.ftl">
 <#include "app_scripts.ftl">
 <#include "google_analytics.ftl">
 
