@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
-    <title>Fallen Timbers</title>
+    <title>Fallen Timbers Design | Home Decor</title>
 
 <#include "vendor_styles.ftl">
 </head>
