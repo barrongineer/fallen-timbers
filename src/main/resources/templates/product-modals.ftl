@@ -32,7 +32,7 @@
                                     </div>
                                 </#if>
                             </#list>
-                        </div>'carousel-' +
+                        </div>
                         <#assign href = "#carousel-${product.id}">
 
                         <a class="left carousel-control" href="${href}" role="button" data-slide="prev">
