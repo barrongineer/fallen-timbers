@@ -22,10 +22,18 @@ class MainController(val productGroupsCache: ProductGroupsCache,
                 location = "Kenwood Towne Center - Cincinnati, OH"
         )
 
-        val charmAtTheFarm = Event(
+        val charmAtTheFarmSpringMarket = Event(
                 url = "http://www.charmatthefarm.com/",
                 image = "/img/charm_at_the_farm.jpg",
-                dates = listOf("August 26, 2017 10am - 6pm", "August 27, 2017 8am - 4pm"),
+                dates = listOf("June 3, 2017 10am - 6pm", "June 4, 2017 10am - 4pm"),
+                venue = "Charm at the Farm - Spring Market",
+                location = "Lebanon, OH"
+        )
+
+        val charmAtTheFarmSummerMarket = Event(
+                url = "http://www.charmatthefarm.com/",
+                image = "/img/charm_at_the_farm.jpg",
+                dates = listOf("August 26, 2017 10am - 6pm", "August 27, 2017 10am - 4pm"),
                 venue = "Charm at the Farm - Summer Market",
                 location = "Lebanon, OH"
         )
@@ -38,7 +46,7 @@ class MainController(val productGroupsCache: ProductGroupsCache,
                 location = "Worthington, OH"
         )
 
-        model.addAttribute("events", listOf(madeLocal, charmAtTheFarm, marketDay))
+        model.addAttribute("events", listOf(madeLocal, charmAtTheFarmSpringMarket, charmAtTheFarmSummerMarket, marketDay))
         model.addAttribute("productGroups", productGroupsCache.productGroups)
         model.addAttribute("productGroupsJson", objectMapper.writeValueAsString(productGroupsCache.productGroups))
 
