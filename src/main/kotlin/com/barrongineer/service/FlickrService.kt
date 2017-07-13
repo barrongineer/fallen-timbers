@@ -2,17 +2,14 @@ package com.barrongineer.service
 
 import com.barrongineer.model.*
 import kotlinx.coroutines.experimental.*
-import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.UriComponentsBuilder
 
 @Service
-class FlickrService(val restTemplate: RestTemplate,
-                    val productGroupsCache: ProductGroupsCache) {
+class FlickrService(val restTemplate: RestTemplate) {
 
-    @Scheduled(fixedRate = 60 * 1000)
-    fun populateProductGroupCache() {
+    fun getProductGroups(): MutableList<ProductGroup> {
         val productGroups = mutableListOf<ProductGroup>()
         val collections = getCollections()
 
@@ -75,7 +72,7 @@ class FlickrService(val restTemplate: RestTemplate,
         productGroups.add(ProductGroup(title = "about"))
         productGroups.add(ProductGroup(title = "contact"))
 
-        productGroupsCache.productGroups = productGroups
+        return productGroups
     }
 
     private fun buildPhotoUrl(photo: FlickrPhoto): String {

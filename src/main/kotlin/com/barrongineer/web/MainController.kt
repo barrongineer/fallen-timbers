@@ -1,6 +1,6 @@
 package com.barrongineer.web
 
-import com.barrongineer.model.ProductGroupsCache
+import com.barrongineer.service.FlickrService
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
 @RequestMapping("/")
-class MainController(val productGroupsCache: ProductGroupsCache,
+class MainController(val flickrService: FlickrService,
                      val objectMapper: ObjectMapper) {
 
     @GetMapping
     fun get(model: Model): String {
+        val productGroups = flickrService.getProductGroups()
+
         val madeLocal = Event(
                 url = "http://www.madelocalmarketplaceshows.com/",
                 image = "/img/made_local.jpg",
@@ -47,8 +49,8 @@ class MainController(val productGroupsCache: ProductGroupsCache,
         )
 
         model.addAttribute("events", listOf(madeLocal, charmAtTheFarmSpringMarket, charmAtTheFarmSummerMarket, marketDay))
-        model.addAttribute("productGroups", productGroupsCache.productGroups)
-        model.addAttribute("productGroupsJson", objectMapper.writeValueAsString(productGroupsCache.productGroups))
+        model.addAttribute("productGroups", productGroups)
+        model.addAttribute("productGroupsJson", objectMapper.writeValueAsString(productGroups))
 
         return "index"
     }
