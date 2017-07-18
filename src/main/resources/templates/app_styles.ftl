@@ -57,4 +57,8 @@
     .thumbnail-container .carousel-indicators {
         bottom: 0px;
     }
+
+    .description-footer {
+        text-align: center;
+    }
 </style>

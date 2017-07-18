@@ -21,7 +21,7 @@ class FlickrService(val restTemplate: RestTemplate) {
 
                     val deferred = mutableListOf<Deferred<FlickrPhotosResponse>>()
 
-                    set.forEach { (id, title) ->
+                    set.forEach { (id, title, description) ->
                         deferred.add(async(CommonPool) {
                             val resp = getPhotos(id)
 
@@ -31,6 +31,7 @@ class FlickrService(val restTemplate: RestTemplate) {
                             products.add(Product(
                                     id = id,
                                     title = title,
+                                    description = description,
                                     thumbnail = buildPhotoUrl(resp.photoset.photo[0]),
                                     images = images
                             ))
@@ -59,7 +60,7 @@ class FlickrService(val restTemplate: RestTemplate) {
             pg.products.forEachIndexed { index, product ->
                 row.add(product)
 
-                if ((index !== 0 && ((index + 1) % 3 == 0)) || index == pg.products.size - 1) {
+                if ((index != 0 && ((index + 1) % 3 == 0)) || index == pg.products.size - 1) {
                     rows.add(row)
                     row = mutableListOf<Product>()
                 }
