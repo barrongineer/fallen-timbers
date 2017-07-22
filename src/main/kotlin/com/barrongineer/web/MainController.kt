@@ -32,6 +32,14 @@ class MainController(val flickrService: FlickrService,
                 location = "Lebanon, OH"
         )
 
+        val cityFlea = Event(
+                url = "http://www.thecityflea.com/",
+                image = "/img/city_flea.jpg",
+                dates = listOf("August 19th, 2017 10am-4pm"),
+                venue = "City Flea",
+                location = "Washington Park, Cincinnati OH"
+        )
+
         val charmAtTheFarmSummerMarket = Event(
                 url = "http://www.charmatthefarm.com/",
                 image = "/img/charm_at_the_farm.jpg",
@@ -48,7 +56,12 @@ class MainController(val flickrService: FlickrService,
                 location = "Worthington, OH"
         )
 
-        model.addAttribute("events", listOf(madeLocal, charmAtTheFarmSpringMarket, charmAtTheFarmSummerMarket, marketDay))
+        model.addAttribute("events", listOf(
+                madeLocal,
+                charmAtTheFarmSpringMarket,
+                cityFlea,
+                charmAtTheFarmSummerMarket,
+                marketDay))
         model.addAttribute("productGroups", productGroups)
         model.addAttribute("productGroupsJson", objectMapper.writeValueAsString(productGroups))
 
