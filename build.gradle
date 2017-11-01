@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '1.1.2'
+        kotlinVersion = '1.1.4-3'
         springBootVersion = '1.5.3.RELEASE'
     }
     repositories {
@@ -31,7 +31,7 @@ noArg {
     annotation("com.barrongineer.model.NoArg")
 }
 
-version = '0.0.2'
+version = '0.0.3-SNAPSHOT'
 sourceCompatibility = 1.8
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
@@ -58,3 +58,6 @@ dependencies {
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14.1")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean

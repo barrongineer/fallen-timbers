@@ -1,0 +1,1 @@
+web: java -jar build/libs/fallen-timbers-0.0.3-SNAPSHOT.jar
