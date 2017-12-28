@@ -56,8 +56,15 @@
     </div>
 
     <div class="row" style="margin-top: 90px;">
-        <a href="https://www.instagram.com/fallentimbersdesign/" target="_blank">
+        <a href="https://www.instagram.com/fallentimbersdesign" target="_blank">
             <i class="fa fa-instagram" aria-hidden="true" style="font-size: 1.5em; color: #000000;"></i>
+            <span style="font-size: 1.25em;">fallentimbersdesign</span>
+        </a>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <a href="https://www.facebook.com/fallentimbersdesign" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true" style="font-size: 1.5em; color: #000000;"></i>
             <span style="font-size: 1.25em;">fallentimbersdesign</span>
         </a>
     </div>

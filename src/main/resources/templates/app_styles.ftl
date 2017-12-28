@@ -2,7 +2,7 @@
     #landing {
         height: 100vh;
         padding-top: 64px;
-        background: center center no-repeat url("/img/landing_bg.jpg");
+        background: center center no-repeat url("/img/landing_bg.jpeg");
         background-size: cover;
     }
 
@@ -13,7 +13,7 @@
     }
 
     #logo-container > img {
-        width: 55%;
+        width: 75%;
         display: block;
         margin: 0 auto;
         opacity: 0.8;
