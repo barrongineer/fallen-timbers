@@ -16,6 +16,14 @@ class MainController(val flickrService: FlickrService,
     fun get(model: Model): String {
         val productGroups = flickrService.getProductGroups()
 
+        val rufflesAndRust1 = Event(
+                url = "https://www.rufflesandrustexpo.com/",
+                image = "/img/ruffles_and_rust.jpg",
+                dates = listOf("March 17, 2018 9am - 5pm", "March 18, 2018 10am - 4pm"),
+                venue = "Ruffles and Rust Expo - Spring",
+                location = "Butler County Fairgrounds, Hamilton OH"
+        )
+
         val monarchMarket = Event(
                 url = "https://www.monarchmarketaffair.com/",
                 image = "/img/monarch_market.jpg",
@@ -32,7 +40,7 @@ class MainController(val flickrService: FlickrService,
                 location = "Lebanon, OH"
         )
 
-        val rufflesAndRust = Event(
+        val rufflesAndRust2 = Event(
                 url = "https://www.rufflesandrustexpo.com/",
                 image = "/img/ruffles_and_rust.jpg",
                 dates = listOf("June 16, 2018 9am - 5pm", "June 17, 2018 10am - 4pm"),
@@ -65,9 +73,10 @@ class MainController(val flickrService: FlickrService,
 //        )
 
         model.addAttribute("events", listOf(
+                rufflesAndRust1
                 monarchMarket,
                 charmAtTheFarmSpringMarket,
-                rufflesAndRust,
+                rufflesAndRust2,
                 charmAtTheFarmSummerMarket))
         model.addAttribute("productGroups", productGroups)
         model.addAttribute("productGroupsJson", objectMapper.writeValueAsString(productGroups))
