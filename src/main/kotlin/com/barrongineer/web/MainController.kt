@@ -73,7 +73,7 @@ class MainController(val flickrService: FlickrService,
 //        )
 
         model.addAttribute("events", listOf(
-                rufflesAndRust1
+                rufflesAndRust1,
                 monarchMarket,
                 charmAtTheFarmSpringMarket,
                 rufflesAndRust2,
