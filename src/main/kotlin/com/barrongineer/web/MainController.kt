@@ -32,6 +32,14 @@ class MainController(val flickrService: FlickrService,
                 location = "Warren County Fairgrounds, Lebanon OH"
         )
 
+        val vmd = Event(
+                url = "https://vintagemarketdays.com/market/west-columbus/event.php?EventId=341",
+                image = "/img/vmd.jpg",
+                dates = listOf("April 27, 2018 10am -5pm", "April 28, 2018 10am -5pm", "April 29, 2018 10am -4pm"),
+                venue = "Vintage Market Days",
+                location = "Franklin County Fair Grounds, Hilliard OH"
+        )
+
         val charmAtTheFarmSpringMarket = Event(
                 url = "http://www.charmatthefarm.com/",
                 image = "/img/charm_at_the_farm.jpg",
@@ -75,6 +83,7 @@ class MainController(val flickrService: FlickrService,
         model.addAttribute("events", listOf(
                 rufflesAndRust1,
                 monarchMarket,
+                vmd,
                 charmAtTheFarmSpringMarket,
                 rufflesAndRust2,
                 charmAtTheFarmSummerMarket))
