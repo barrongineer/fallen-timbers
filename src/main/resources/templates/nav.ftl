@@ -18,7 +18,7 @@
             <#list productGroups as pg>
                 <#if pg.href??>
                     <li>
-                        <a id="${pg.title?replace(" ", "")}-navlink" href="${pg.href}">${pg.title}</a>
+                        <a href="${pg.href}" target="_blank">${pg.title}</a>
                     </li>
                 <#else>
                     <li>
