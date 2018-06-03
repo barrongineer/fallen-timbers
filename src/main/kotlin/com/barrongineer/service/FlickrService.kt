@@ -72,6 +72,7 @@ class FlickrService(val restTemplate: RestTemplate) {
         productGroups.add(ProductGroup(title = "events"))
         productGroups.add(ProductGroup(title = "about"))
         productGroups.add(ProductGroup(title = "contact"))
+        productGroups.add(ProductGroup(title = "shop", href = "https://www.etsy.com/shop/FallenTimbersDesign"))
 
         return productGroups
     }

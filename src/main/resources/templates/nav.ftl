@@ -16,9 +16,15 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
             <#list productGroups as pg>
-                <li>
-                    <a id="${pg.title?replace(" ", "")}-navlink" href="javascript:void(0)">${pg.title}</a>
-                </li>
+                <#if pg.href??>
+                    <li>
+                        <a id="${pg.title?replace(" ", "")}-navlink" href="${pg.href}">${pg.title}</a>
+                    </li>
+                <#else>
+                    <li>
+                        <a id="${pg.title?replace(" ", "")}-navlink" href="javascript:void(0)">${pg.title}</a>
+                    </li>
+                </#if>
             </#list>
             </ul>
         </div>
