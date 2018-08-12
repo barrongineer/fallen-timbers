@@ -62,17 +62,19 @@ class FlickrService(val restTemplate: RestTemplate) {
 
                 if ((index != 0 && ((index + 1) % 3 == 0)) || index == pg.products.size - 1) {
                     rows.add(row)
-                    row = mutableListOf<Product>()
+                    row = mutableListOf()
                 }
             }
 
             pg.rows = rows
         }
 
+        productGroups.add(ProductGroup(title = "custom order"))
         productGroups.add(ProductGroup(title = "events"))
         productGroups.add(ProductGroup(title = "about"))
         productGroups.add(ProductGroup(title = "contact"))
-        productGroups.add(ProductGroup(title = "shop", href = "https://www.etsy.com/shop/FallenTimbersDesign"))
+
+        // https://www.etsy.com/shop/FallenTimbersDesign
 
         return productGroups
     }

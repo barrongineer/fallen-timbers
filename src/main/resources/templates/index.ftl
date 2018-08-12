@@ -25,6 +25,10 @@
             <div style="margin-top: 40px;" class="container">
                 <#include "events.ftl">
             </div>
+        <#elseif pg.title == "custom order">
+            <div class="container">
+                <#include "custom_order.ftl">
+            </div>
         <#elseif pg.title == "contact">
             <#include "contact.ftl">
         <#elseif pg.title == "about">
