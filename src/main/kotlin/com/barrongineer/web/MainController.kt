@@ -24,7 +24,7 @@ class MainController(val flickrService: FlickrService,
                         "August 24, 2019 10am - 4pm",
                         "August 25, 2019 10am - 3pm"
                 ),
-                venue = "Charm at the Farm - Spring Market",
+                venue = "Charm at the Farm - Summer Market",
                 location = "Lebanon, OH"
         )
 
@@ -36,7 +36,7 @@ class MainController(val flickrService: FlickrService,
                         "October 19, 2019 10am - 4pm",
                         "October 20, 2019 10am - 3pm"
                 ),
-                venue = "Charm at the Farm - Summer Market",
+                venue = "Charm at the Farm - Fall Market",
                 location = "Lebanon, OH"
         )
 
