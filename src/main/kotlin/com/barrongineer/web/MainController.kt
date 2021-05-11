@@ -16,33 +16,21 @@ class MainController(val flickrService: FlickrService,
     fun get(model: Model): String {
         val productGroups = flickrService.getProductGroups()
 
-        val charmSummer = Event(
+        val charmSpring = Event(
                 url = "http://www.charmatthefarm.com/",
                 image = "/img/charm_at_the_farm.jpg",
                 dates = listOf(
-                        "August 23, 2019 4pm - 8pm VIP NIGHT",
-                        "August 24, 2019 10am - 4pm",
-                        "August 25, 2019 10am - 3pm"
+                        "June 11, 2021 4pm - 8pm VIP Night",
+                        "June 12, 2021 9am - 12pm Early Bird",
+                        "June 12, 2021 1pm - 4pm General Admission",
+                        "June 13, 2021 10am - 3pm"
                 ),
-                venue = "Charm at the Farm - Summer Market",
-                location = "Lebanon, OH"
-        )
-
-        val charmFall = Event(
-                url = "http://www.charmatthefarm.com/",
-                image = "/img/charm_at_the_farm.jpg",
-                dates = listOf(
-                        "October 18, 2019 3:30pm - 7pm VIP NIGHT",
-                        "October 19, 2019 10am - 4pm",
-                        "October 20, 2019 10am - 3pm"
-                ),
-                venue = "Charm at the Farm - Fall Market",
+                venue = "Charm at the Farm - June Market",
                 location = "Lebanon, OH"
         )
 
         model.addAttribute("events", listOf(
-                charmSummer,
-                charmFall))
+                charmSpring))
         model.addAttribute("productGroups", productGroups)
         model.addAttribute("productGroupsJson", objectMapper.writeValueAsString(productGroups))
 
