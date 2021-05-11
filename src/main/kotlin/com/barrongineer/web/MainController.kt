@@ -20,10 +20,7 @@ class MainController(val flickrService: FlickrService,
                 url = "http://www.charmatthefarm.com/",
                 image = "/img/charm_at_the_farm.jpg",
                 dates = listOf(
-                        "June 11, 2021 4pm - 8pm VIP Night",
-                        "June 12, 2021 9am - 12pm Early Bird",
-                        "June 12, 2021 1pm - 4pm General Admission",
-                        "June 13, 2021 10am - 3pm"
+                        "June 11-13, 2021"
                 ),
                 venue = "Charm at the Farm - June Market",
                 location = "Lebanon, OH"
