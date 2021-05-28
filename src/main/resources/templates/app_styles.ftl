@@ -16,7 +16,8 @@
         width: 75%;
         display: block;
         margin: 0 auto;
-        opacity: 0.8;
+        padding: 26px;
+        background-color: #ffffff;
     }
 
     .thumbnail-container:hover .overlay {
